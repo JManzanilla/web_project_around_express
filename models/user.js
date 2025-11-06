@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { urlValidator } = require("../utils/validators");
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -16,13 +17,7 @@ const userSchema = new mongoose.Schema({
   avatar: {
     type: String,
     required: true,
-    // Validación básica para URL
-    validate: {
-      validator: function (v) {
-        return /^https?:\/\/.+/i.test(v);
-      },
-      message: (props) => `${props.value} no es una URL válida`,
-    },
+    validate: urlValidator,
   },
 });
 
