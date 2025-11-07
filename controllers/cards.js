@@ -27,7 +27,7 @@ const createCard = (req, res) => {
       .json({ message: "Usuario no autenticado (owner faltante)" });
   }
 
-  Card.create({ name, link, owner })
+  Card.insertOne({ name, link, owner })
     .then((card) => res.status(201).json(card))
     .catch((err) => {
       console.error(err);
