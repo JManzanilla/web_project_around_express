@@ -1,15 +1,14 @@
-const express = require("express");
-const fs = require("fs");
-const path = require("path");
+// routes/cards.js
+const router = require("express").Router();
+const { getCards, createCard, deleteCard } = require("../controllers/cards");
 
-const router = express.Router();
-const cards = JSON.parse(
-  fs.readFileSync(path.join(__dirname, "..", "data", "cards.json"))
-);
+router.get("/", getCards); // GET /cards
+router.post("/", createCard); // POST /cards
+router.delete("/:cardId", deleteCard); // DELETE /cards/:cardId
 
-// GET /cards → lista completa
-router.get("/", (req, res) => {
-  res.json(cards);
-});
+// Likes
+const { likeCard, unlikeCard } = require("../controllers/cards");
+router.put("/:cardId/likes", likeCard); // PUT /cards/:cardId/likes
+router.delete("/:cardId/likes", unlikeCard); // DELETE /cards/:cardId/likes
 
 module.exports = router;

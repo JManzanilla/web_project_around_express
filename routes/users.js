@@ -1,4 +1,4 @@
-const express = require("express");
+/* const express = require("express");
 const fs = require("fs");
 const path = require("path");
 
@@ -21,5 +21,14 @@ router.get("/:id", (req, res) => {
     res.status(404).json({ message: "ID de usuario no encontrado" });
   }
 });
+
+module.exports = router;
+ */
+const router = require("express").Router();
+const { getUsers, getUserById, createUser } = require("../controllers/users");
+
+router.get("/", getUsers); // GET /users
+router.get("/:userId", getUserById); // GET /users/:userId
+router.post("/", createUser); // POST /users
 
 module.exports = router;
