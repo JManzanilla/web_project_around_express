@@ -171,12 +171,4 @@ curl -X POST http://localhost:3000/cards \
 
 ---
 
-Si quieres, puedo:
 
-1. Añadir el script `scripts/seed-user.js` para insertar el usuario de prueba automáticamente.
-2. Añadir un script `scripts/test-api.js` para ejecutar requests de manera automática.
-3. Añadir un middleware global de manejo de errores.
-
-Indícame qué prefieres y lo implemento.
-
----
