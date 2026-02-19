@@ -52,5 +52,3 @@ app.listen(PORT, () => {
 app.use((err, req, res, next) => {
   res.status(500).send({ message: "Se ha producido un error en el servidor" });
 });
-
-app.listen(PORT);
